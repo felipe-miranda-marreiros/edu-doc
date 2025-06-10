@@ -24,7 +24,7 @@ export function LoginForm() {
       {
         onSuccess: (res) => {
           console.log(res)
-          router.navigate('/protected/document-list')
+          router.navigate('/protected/document-list-option')
         },
         onError: (err) => {
           console.log('error', err.cause)
