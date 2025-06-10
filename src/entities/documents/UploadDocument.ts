@@ -1,4 +1,4 @@
-export interface UploadedDocument {
+export interface UploadedDocumentAPI {
   id: string
   title: string
   category: 'atestado' | 'justificativa' | 'requerimento'

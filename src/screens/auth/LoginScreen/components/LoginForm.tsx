@@ -1,23 +1,36 @@
-import { Login } from '@/src/entities/login/Login'
+import { SignIn } from '@/src/entities/SignIn/SignIn'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'expo-router'
 import { Controller, useForm } from 'react-hook-form'
 import { Button, Text, TextInput, View } from 'react-native'
+import { useSignInApi } from '../api/useSignInApi'
 import { loginSchema } from './LoginSchema'
 
 export function LoginForm() {
+  const { signIn, isPending } = useSignInApi()
   const router = useRouter()
   const form = useForm({
     defaultValues: {
-      enrollmentId: '5bd95f9d-7c52-4831-ae1e-577d2961b7a7',
+      enrollment: '5bd95f9d-7c52-4831-ae1e-577d2961b7a7',
       password: 'test123456'
     },
     resolver: zodResolver(loginSchema)
   })
 
-  function onSubmit(data: Login) {
+  function onSubmit(data: SignIn) {
     console.log(data)
-    router.navigate('/protected/document-list')
+    signIn(
+      { enrollment: data.enrollment, password: data.password },
+      {
+        onSuccess: (res) => {
+          console.log(res)
+          router.navigate('/protected/document-list')
+        },
+        onError: (err) => {
+          console.log('error', err.cause)
+        }
+      }
+    )
   }
 
   return (
@@ -36,11 +49,9 @@ export function LoginForm() {
             value={value}
           />
         )}
-        name="enrollmentId"
+        name="enrollment"
       />
-      {form.formState.errors.enrollmentId && (
-        <Text>{form.formState.errors.enrollmentId.message}</Text>
-      )}
+      {form.formState.errors.enrollment && <Text>{form.formState.errors.enrollment.message}</Text>}
       <Controller
         control={form.control}
         rules={{
@@ -57,7 +68,7 @@ export function LoginForm() {
         name="password"
       />
       {form.formState.errors.password && <Text>{form.formState.errors.password.message}</Text>}
-      <Button onPress={form.handleSubmit(onSubmit)} title="Fazer login" />
+      <Button disabled={isPending} onPress={form.handleSubmit(onSubmit)} title="Fazer login" />
     </View>
   )
 }

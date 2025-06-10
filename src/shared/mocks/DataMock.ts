@@ -1,4 +1,4 @@
-export const data = {
+export const dataMock = {
   documentCategories: {
     available: {
       historico: 'Histórico Escolar',

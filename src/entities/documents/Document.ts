@@ -1,4 +1,4 @@
-export interface Document {
+export interface DocumentAPI {
   id: string
   title: string
   type: 'pdf' | 'docx' | 'html' | 'image'
