@@ -1,16 +1,12 @@
 import { DocumentAPI } from '@/src/entities/Documents/Document'
-import { useBottomSheetService } from '@/src/shared/components/BottomSheet/BottomSheetStore'
+import { useRouter } from 'expo-router'
 import { Pressable, Text, View } from 'react-native'
-import { DocumentPreview } from './DocumentPreview'
 
 export function DocumentItem(item: DocumentAPI) {
-  const { onOpen } = useBottomSheetService()
+  const router = useRouter()
 
   function onPress() {
-    onOpen({
-      Component: <DocumentPreview />,
-      snapPoints: ['50%']
-    })
+    router.navigate('/protected/document-preview')
   }
 
   return (
