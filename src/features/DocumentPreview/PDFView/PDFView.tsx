@@ -7,7 +7,7 @@ interface PDFViewProps {
   source: string
 }
 
-export function PDFViewer({ source }: PDFViewProps) {
+export function PDFView({ source }: PDFViewProps) {
   const [pdfUri, setPdfUri] = useState<string | null>(null)
 
   useEffect(() => {
