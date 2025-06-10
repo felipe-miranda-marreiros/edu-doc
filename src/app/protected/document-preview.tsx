@@ -1,1 +1,1 @@
-export { default } from '@/src/screens/app/DocumentPreviewScreen/DocumentPreviewScreen'
+export { default } from '@/src/screens/app/Documents/DocumentPreviewScreen/DocumentPreviewScreen'

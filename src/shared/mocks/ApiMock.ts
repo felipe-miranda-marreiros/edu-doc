@@ -22,5 +22,8 @@ window.server = createServer({
     this.get(BASE_URL + '/student/documents', () => {
       return dataMock.availableDocuments
     })
+    this.get(BASE_URL + 'student/documents/uploaded', () => {
+      return dataMock.uploadedDocuments
+    })
   }
 })

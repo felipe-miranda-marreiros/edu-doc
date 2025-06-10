@@ -13,7 +13,10 @@ export default function DocumentListOptionScreen() {
           onPress={() => router.navigate('/protected/document-list')}
           title="Documentos disponíveis"
         />
-        <Button title="Documentos que você enviou" />
+        <Button
+          onPress={() => router.navigate('/protected/uploaded-documents')}
+          title="Documentos que você enviou"
+        />
       </View>
     </View>
   )

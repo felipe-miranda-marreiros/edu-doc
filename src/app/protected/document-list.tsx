@@ -1,1 +1,1 @@
-export { default } from '../../screens/app/DocumentListScreen/screen/DocumentListScreen'
+export { default } from '../../screens/app/Documents/DocumentListScreen/screen/DocumentListScreen'
