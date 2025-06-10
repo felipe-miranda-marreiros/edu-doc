@@ -8,7 +8,7 @@ export default function RootLayout() {
   return (
     <Providers>
       <SafeAreaView className="flex-1">
-        <Stack screenOptions={{ headerShown: false }} />
+        <Stack initialRouteName="index" screenOptions={{ headerShown: false }} />
       </SafeAreaView>
     </Providers>
   )
