@@ -1,7 +1,7 @@
 import { useBottomSheetService } from '@/src/shared/components/BottomSheet/BottomSheetStore'
 import { useRouter } from 'expo-router'
 import { Button, Text, View } from 'react-native'
-import { BaseStepProps } from './UploadFileStepper'
+import { BaseStepProps } from '../UploadFileStepper'
 
 export type UploadFileMethods = 'camera' | 'gallery'
 
@@ -10,7 +10,9 @@ export function UploadFileMethod({ onNextTab }: BaseStepProps) {
   const { onReset } = useBottomSheetService()
 
   function onPress(method: UploadFileMethods) {
-    router.navigate('/protected/camera')
+    if (method === 'camera') {
+      router.navigate('/private/camera')
+    }
     onNextTab({ method })
     onReset()
   }

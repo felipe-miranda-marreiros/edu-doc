@@ -1,4 +1,4 @@
-import { UploadedDocumentAPI } from '@/src/entities/Documents/UploadDocument'
+import { UploadedDocumentAPI } from '@/src/entities/UploadedDocuments/UploadDocument'
 import {
   ActivityIndicator,
   FlatList,

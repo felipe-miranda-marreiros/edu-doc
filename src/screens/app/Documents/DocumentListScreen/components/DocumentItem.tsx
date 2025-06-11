@@ -6,7 +6,7 @@ export function DocumentItem(item: DocumentAPI) {
   const router = useRouter()
 
   function onPress() {
-    router.navigate('/protected/document-preview')
+    router.navigate('/private/doc-preview')
   }
 
   return (

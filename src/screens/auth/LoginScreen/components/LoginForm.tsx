@@ -18,13 +18,12 @@ export function LoginForm() {
   })
 
   function onSubmit(data: SignIn) {
-    console.log(data)
     signIn(
       { enrollment: data.enrollment, password: data.password },
       {
         onSuccess: (res) => {
           console.log(res)
-          router.navigate('/protected/document-list-option')
+          router.navigate('/private/doc/doc-options')
         },
         onError: (err) => {
           console.log('error', err.cause)

@@ -1,4 +1,5 @@
 import { Credentials } from '@/src/entities/Auth/Auth'
+import { UploadedDocumentAPI } from '@/src/entities/UploadedDocuments/UploadDocument'
 import { createServer } from 'miragejs'
 import { BASE_URL } from '../api/Client'
 import { dataMock } from './DataMock'
@@ -22,7 +23,11 @@ window.server = createServer({
     this.get(BASE_URL + '/student/documents', () => {
       return dataMock.availableDocuments
     })
-    this.get(BASE_URL + 'student/documents/uploaded', () => {
+    this.get(BASE_URL + '/student/documents/uploaded', () => {
+      return dataMock.uploadedDocuments
+    })
+    this.post<UploadedDocumentAPI[]>(BASE_URL + '/student/documents/upload', (schema, request) => {
+      console.log('Upload', JSON.parse(request.requestBody))
       return dataMock.uploadedDocuments
     })
   }

@@ -1,7 +1,8 @@
-import { UploadedCatetoryAPI } from '@/src/entities/Documents/UploadDocument'
+import { UploadedCatetoryAPI } from '@/src/entities/UploadedDocuments/UploadDocument'
 import React, { useState } from 'react'
-import { UploadFileMethod, UploadFileMethods } from './UploadFileMethod'
-import { UploadFileOptions } from './UploadFileOptions'
+import { UploadFileForm } from './steps/UploadFileForm'
+import { UploadFileMethod, UploadFileMethods } from './steps/UploadFileMethod'
+import { UploadFileOptions } from './steps/UploadFileOptions'
 
 const INITIAL_STEP = 0
 
@@ -14,13 +15,14 @@ export interface BaseStepProps {
 interface ContextProps {
   category?: UploadedCatetoryAPI
   method?: UploadFileMethods
+  title?: string
 }
 
 export function UploadFileStepper() {
   const [step, setStep] = useState(INITIAL_STEP)
   const [context, setContext] = useState<ContextProps | null>(null)
 
-  const steps = [UploadFileOptions, UploadFileMethod]
+  const steps = [UploadFileOptions, UploadFileForm, UploadFileMethod]
 
   function onNextTab(data?: ContextProps) {
     setContext((prevState) => ({ ...prevState, ...data }))
@@ -30,6 +32,8 @@ export function UploadFileStepper() {
       return nextStep
     })
   }
+
+  console.log(context)
 
   function onPrevTab() {
     setStep((prevState) => {

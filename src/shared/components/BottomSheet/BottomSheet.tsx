@@ -57,6 +57,9 @@ export function BottomSheet() {
           onChange={onChange}
           backdropComponent={renderBackdrop}
           snapPoints={snapPoints}
+          enableDynamicSizing={false}
+          enableBlurKeyboardOnGesture
+          keyboardBlurBehavior="restore"
           animationConfigs={{
             duration: 200
           }}

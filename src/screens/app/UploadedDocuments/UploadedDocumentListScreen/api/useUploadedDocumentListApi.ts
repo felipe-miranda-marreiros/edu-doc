@@ -1,4 +1,4 @@
-import { UploadedDocumentAPI } from '@/src/entities/Documents/UploadDocument'
+import { UploadedDocumentAPI } from '@/src/entities/UploadedDocuments/UploadDocument'
 import { client } from '@/src/shared/api/Client'
 import { useQuery } from '@tanstack/react-query'
 

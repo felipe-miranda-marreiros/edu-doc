@@ -1,17 +1,17 @@
 import { PermissionName, usePermission } from '@/src/shared/permission'
+import { PropsWithChildren } from 'react'
 import { ActivityIndicator, Button, Platform, Text, View } from 'react-native'
 
 interface PermissionManagerProps {
   permissionName: PermissionName
   description: string
-  children: React.ReactElement
 }
 
 export function PermissionManager({
   children,
   description,
   permissionName
-}: PermissionManagerProps) {
+}: PropsWithChildren<PermissionManagerProps>) {
   const { status, isLoading } = usePermission(permissionName)
 
   if (status === 'granted') {

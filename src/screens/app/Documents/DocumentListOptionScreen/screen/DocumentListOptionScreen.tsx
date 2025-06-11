@@ -9,12 +9,9 @@ export default function DocumentListOptionScreen() {
       <Text className="text-2xl mb-6">Escolha o que você deseja visualizar:</Text>
 
       <View className="gap-8">
+        <Button onPress={() => router.navigate('/private/doc')} title="Documentos disponíveis" />
         <Button
-          onPress={() => router.navigate('/protected/document-list')}
-          title="Documentos disponíveis"
-        />
-        <Button
-          onPress={() => router.navigate('/protected/uploaded-documents')}
+          onPress={() => router.navigate('/private/uploaded-docs')}
           title="Documentos que você enviou"
         />
       </View>
