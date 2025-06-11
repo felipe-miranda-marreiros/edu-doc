@@ -2,7 +2,9 @@ import { client } from '@/src/shared/api/Client'
 import { useMutation } from '@tanstack/react-query'
 
 interface UploadDocumentParams {
-  formData: FormData
+  title: string
+  category: string
+  file: string
 }
 
 async function uploadDocument(params: UploadDocumentParams): Promise<void> {

@@ -1,3 +1,5 @@
+import { File } from '../Documents/File'
+
 export interface UploadedDocumentAPI {
   id: string
   title: string

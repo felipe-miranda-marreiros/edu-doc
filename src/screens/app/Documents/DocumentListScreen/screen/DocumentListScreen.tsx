@@ -1,4 +1,5 @@
 import { DocumentAPI } from '@/src/entities/Documents/Document'
+import { Screen } from '@/src/shared/components/Screen/Screen'
 import { ActivityIndicator, FlatList, ListRenderItemInfo, RefreshControl, View } from 'react-native'
 import { useDocumentList } from '../api/useDocumentListApi'
 import { DocumentItem } from '../components/DocumentItem'
@@ -27,13 +28,15 @@ export default function DocumentListScreen() {
   }
 
   return (
-    <FlatList
-      contentContainerStyle={{ flex: 1, padding: 16, gap: 16, backgroundColor: 'white' }}
-      data={docList}
-      refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />}
-      refreshing={isRefetching}
-      keyExtractor={keyExtractor}
-      renderItem={renderItem}
-    />
+    <Screen title="Para você visualizar">
+      <FlatList
+        contentContainerStyle={{ flex: 1, gap: 16, backgroundColor: 'white' }}
+        data={docList}
+        refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />}
+        refreshing={isRefetching}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
+      />
+    </Screen>
   )
 }

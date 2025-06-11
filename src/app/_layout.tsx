@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Providers } from '../providers/Providers'
-import '../shared/mocks/ApiMock'
+import '../shared/mocks/ServerMock'
 import '../shared/styles/global.css'
 
 export default function RootLayout() {

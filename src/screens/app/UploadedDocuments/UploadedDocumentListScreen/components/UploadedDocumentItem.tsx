@@ -16,6 +16,9 @@ export function UploadedDocumentItem(item: UploadedDocumentAPI) {
     >
       <Text className="text-lg font-semibold">{item.title}</Text>
       <Text>{item.category.toUpperCase()}</Text>
+      <Text>
+        Data de Envio: {new Date(item.uploadDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}
+      </Text>
     </Pressable>
   )
 }

@@ -12,6 +12,8 @@ if (window.server) {
   server.shutdown()
 }
 
+const uploadedDocuments: UploadedDocumentAPI[] = []
+
 //@ts-expect-error Podemos criar um global.d.ts e incluir a tipagem do MirageJs
 window.server = createServer({
   timing: 2000,
@@ -27,11 +29,20 @@ window.server = createServer({
       return dataMock.availableDocuments
     })
     this.get(BASE_URL + '/student/documents/uploaded', () => {
-      return dataMock.uploadedDocuments
+      return uploadedDocuments
     })
     this.post<UploadedDocumentAPI[]>(BASE_URL + '/student/documents/upload', (schema, request) => {
-      console.log('Upload', JSON.parse(request.requestBody))
-      return dataMock.uploadedDocuments
+      const formData: UploadedDocumentAPI = JSON.parse(request.requestBody)
+      const file: UploadedDocumentAPI = {
+        category: formData.category,
+        file: formData.file,
+        title: formData.title,
+        id: String(uploadedDocuments.length + 1),
+        status: formData.status ?? 'em_analise',
+        uploadDate: new Date().toISOString()
+      }
+      uploadedDocuments.push(file)
+      return uploadedDocuments
     })
   }
 })
