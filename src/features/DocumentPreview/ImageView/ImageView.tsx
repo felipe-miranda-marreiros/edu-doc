@@ -11,7 +11,6 @@ export function ImageViewer() {
 
       const fileInfo = await FileSystem.getInfoAsync(filePath)
       if (fileInfo.exists) {
-        // Para WebView funcionar corretamente com arquivo local, prefixe com "file://"
         setHtmlUri('file://' + fileInfo.uri.replace('file://', ''))
       } else {
         console.warn('HTML não encontrado.')

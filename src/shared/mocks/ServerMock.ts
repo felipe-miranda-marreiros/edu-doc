@@ -38,7 +38,7 @@ window.server = createServer({
         file: formData.file,
         title: formData.title,
         id: String(uploadedDocuments.length + 1),
-        status: formData.status ?? 'em_analise',
+        status: formData.status ?? 'enviado',
         uploadDate: new Date().toISOString()
       }
       uploadedDocuments.push(file)

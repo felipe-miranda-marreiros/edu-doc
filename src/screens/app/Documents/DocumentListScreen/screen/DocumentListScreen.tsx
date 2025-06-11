@@ -30,7 +30,7 @@ export default function DocumentListScreen() {
   return (
     <Screen title="Para você visualizar">
       <FlatList
-        contentContainerStyle={{ flex: 1, gap: 16, backgroundColor: 'white' }}
+        contentContainerStyle={{ gap: 16 }}
         data={docList}
         refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />}
         refreshing={isRefetching}

@@ -22,6 +22,7 @@ export default function CameraPreviewScreen({ uri }: CameraPreviewProps) {
       {
         onSuccess: async () => {
           await queryClient.invalidateQueries({ queryKey: ['UPLOAD_DOCUMENT_LIST'] })
+          router.dismiss(1)
           router.replace('/private/uploaded-docs')
         }
       }

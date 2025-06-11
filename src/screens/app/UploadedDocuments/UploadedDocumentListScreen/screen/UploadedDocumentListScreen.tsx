@@ -1,4 +1,5 @@
 import { UploadedDocumentAPI } from '@/src/entities/UploadedDocuments/UploadDocument'
+import { Screen } from '@/src/shared/components/Screen/Screen'
 import {
   ActivityIndicator,
   FlatList,
@@ -8,7 +9,7 @@ import {
   View
 } from 'react-native'
 import { useUploadedDocumentList } from '../api/useUploadedDocumentListApi'
-import { UploadedDocumentItem } from '../components/UploadedDocumentItem'
+import { UploadedDocumentItem } from '../components/UploadedDocumentItem/UploadedDocumentItem'
 import { UploadFileButton } from '../components/UploadFileButton'
 
 export default function UploadedDocumentListScreen() {
@@ -34,25 +35,30 @@ export default function UploadedDocumentListScreen() {
     refetch()
   }
 
-  function empty() {
-    return (
-      <View className="items-center gap-3 justify-center flex-1">
-        <Text className="text-3xl">Nenhum arquivo encontrado</Text>
-        <Text>Tente enviar um novo arquivo</Text>
-        <UploadFileButton />
-      </View>
-    )
-  }
-
   return (
-    <FlatList
-      contentContainerStyle={{ flex: 1, padding: 16, gap: 16, backgroundColor: 'white' }}
-      data={uploadedList}
-      refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />}
-      refreshing={isRefetching}
-      keyExtractor={keyExtractor}
-      renderItem={renderItem}
-      ListEmptyComponent={empty}
-    />
+    <Screen title="Documentos que você enviou">
+      {uploadedList?.length ? (
+        <>
+          <FlatList
+            contentContainerStyle={{ gap: 16, paddingBottom: 16 }}
+            data={uploadedList}
+            refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={onRefresh} />}
+            refreshing={isRefetching}
+            keyExtractor={keyExtractor}
+            renderItem={renderItem}
+            scrollEnabled
+          />
+          <View className="-ml-4 -mr-4 -mb-4">
+            <UploadFileButton />
+          </View>
+        </>
+      ) : (
+        <View className="items-center gap-3 justify-center flex-1">
+          <Text className="text-3xl">Nenhum arquivo encontrado</Text>
+          <Text>Tente enviar um novo arquivo</Text>
+          <UploadFileButton />
+        </View>
+      )}
+    </Screen>
   )
 }
