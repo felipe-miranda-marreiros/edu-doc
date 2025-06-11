@@ -25,8 +25,8 @@ export function UploadFileForm({ onNextStep: onNextTab }: BaseStepProps) {
   }
 
   return (
-    <View className="flex-1 justify-between h-[300px]">
-      <View className="flex-1">
+    <View className="flex-1">
+      <View className="flex-2 mt-2">
         <Text className="text-xl mb-4">Como deseja chamar este arquivo?</Text>
         <Controller
           control={form.control}
@@ -42,7 +42,7 @@ export function UploadFileForm({ onNextStep: onNextTab }: BaseStepProps) {
           name="title"
         />
       </View>
-      <View className="flex-1">
+      <View className="mt-auto mb-5">
         <Button title="Avançar" onPress={form.handleSubmit(onSubmit)} />
       </View>
     </View>

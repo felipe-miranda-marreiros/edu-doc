@@ -18,6 +18,6 @@ export interface UploadedDocument {
   file: string
 }
 
-export type UploadedCatetoryAPI = 'atestado' | 'justificativa' | 'requerimento'
+export type UploadedCatetoryAPI = 'atestado' | 'justificativa' | 'requerimento' | 'outros'
 
 export type UploadedStatusAPI = 'enviado' | 'em_analise' | 'aprovado' | 'rejeitado'

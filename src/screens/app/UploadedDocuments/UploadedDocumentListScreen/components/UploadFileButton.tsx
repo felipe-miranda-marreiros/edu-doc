@@ -8,7 +8,7 @@ export function UploadFileButton() {
   function onPress() {
     onOpen({
       Component: <UploadFileStepper />,
-      snapPoints: ['30%']
+      snapPoints: ['35%']
     })
   }
 

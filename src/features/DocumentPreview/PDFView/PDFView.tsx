@@ -8,14 +8,7 @@ interface PDFViewProps {
 export function PDFView({ source }: PDFViewProps) {
   return (
     <View className="flex-1 h-[500px]">
-      <PdfRendererView
-        style={{ flex: 1 }}
-        source={source}
-        maxZoom={3}
-        onPageChange={(current, total) => {
-          console.log(current, total)
-        }}
-      />
+      <PdfRendererView style={{ flex: 1 }} source={source} maxZoom={3} />
     </View>
   )
 }

@@ -57,12 +57,14 @@ export function BottomSheet() {
           onChange={onChange}
           backdropComponent={renderBackdrop}
           snapPoints={snapPoints}
-          enableDynamicSizing={false}
           enableBlurKeyboardOnGesture
           keyboardBlurBehavior="restore"
+          enableDynamicSizing={false}
           animationConfigs={{
             duration: 200
           }}
+          containerStyle={{ flex: 1, flexGrow: 1 }}
+          style={{ flex: 1, flexGrow: 1 }}
         >
           <BottomSheetView style={$style.default}>{modalProps?.Component}</BottomSheetView>
         </RNBottomSheet>
@@ -74,6 +76,7 @@ export function BottomSheet() {
 const $style = StyleSheet.create({
   default: {
     padding: 16,
-    flex: 1
+    flex: 1,
+    height: '100%'
   }
 })
