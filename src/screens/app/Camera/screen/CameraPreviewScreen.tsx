@@ -1,4 +1,4 @@
-import { useUploadDocument } from '@/src/entities/UploadedDocuments/useUploadDocumentApi'
+import { useUploadDocument } from '@/src/features/UploadDocument/useUploadDocumentApi'
 import { compressString } from '@/src/shared/utils/compressString'
 import { useRouter } from 'expo-router'
 import { Button, Image, View } from 'react-native'

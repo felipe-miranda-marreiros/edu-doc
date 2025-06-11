@@ -1,3 +1,4 @@
+import { useUploadActions } from '@/src/features/UploadDocument/useUploadStore'
 import { useBottomSheetService } from '@/src/shared/components/BottomSheet/BottomSheetStore'
 import { useRouter } from 'expo-router'
 import { Button, Text, View } from 'react-native'
@@ -5,15 +6,18 @@ import { BaseStepProps } from '../UploadFileStepper'
 
 export type UploadFileMethods = 'camera' | 'gallery'
 
-export function UploadFileMethod({ onNextTab }: BaseStepProps) {
+export function UploadFileMethod({ onNextStep: onNextTab }: BaseStepProps) {
   const router = useRouter()
   const { onReset } = useBottomSheetService()
+  const { setMethod } = useUploadActions()
 
   function onPress(method: UploadFileMethods) {
     if (method === 'camera') {
-      router.navigate('/private/camera')
+      router.navigate({
+        pathname: '/private/camera'
+      })
     }
-    onNextTab({ method })
+    setMethod(method)
     onReset()
   }
 

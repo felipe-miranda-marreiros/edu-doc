@@ -1,3 +1,4 @@
+import { useUploadActions } from '@/src/features/UploadDocument/useUploadStore'
 import { BottomSheetTextInput } from '@gorhom/bottom-sheet'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm } from 'react-hook-form'
@@ -9,7 +10,8 @@ const uploadFormSchema = z.object({
   title: z.string().trim().nonempty({ message: 'Campo obrigatório' })
 })
 
-export function UploadFileForm({ onNextTab }: BaseStepProps) {
+export function UploadFileForm({ onNextStep: onNextTab }: BaseStepProps) {
+  const { setTitle } = useUploadActions()
   const form = useForm({
     defaultValues: {
       title: ''
@@ -18,7 +20,8 @@ export function UploadFileForm({ onNextTab }: BaseStepProps) {
   })
 
   function onSubmit(data: z.infer<typeof uploadFormSchema>) {
-    onNextTab({ title: data.title })
+    setTitle(data.title)
+    onNextTab()
   }
 
   return (
