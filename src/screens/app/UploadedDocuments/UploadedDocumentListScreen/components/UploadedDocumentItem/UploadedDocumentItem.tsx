@@ -1,14 +1,19 @@
-import { UploadedDocumentAPI } from '@/src/entities/UploadedDocuments/UploadDocument'
+import { UploadedDocument } from '@/src/entities/UploadedDocuments/UploadDocument'
 import { useRouter } from 'expo-router'
 import { Pressable, Text, View } from 'react-native'
 import { UploadDocumentCategory } from './components/UploadDocumentCategory'
 import { UploadDocumentStatus } from './components/UploadDocumentStatus'
 
-export function UploadedDocumentItem(item: UploadedDocumentAPI) {
+export function UploadedDocumentItem(item: UploadedDocument) {
   const router = useRouter()
 
   function onPress() {
-    router.navigate('/private/doc-preview')
+    router.navigate({
+      pathname: '/private/doc-preview/[uri]',
+      params: {
+        uri: item.file
+      }
+    })
   }
 
   return (

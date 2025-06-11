@@ -1,4 +1,4 @@
-import { UploadedDocumentAPI } from '@/src/entities/UploadedDocuments/UploadDocument'
+import { UploadedDocument } from '@/src/entities/UploadedDocuments/UploadDocument'
 import { Screen } from '@/src/shared/components/Screen/Screen'
 import {
   ActivityIndicator,
@@ -23,11 +23,11 @@ export default function UploadedDocumentListScreen() {
     )
   }
 
-  function renderItem({ item }: ListRenderItemInfo<UploadedDocumentAPI>) {
+  function renderItem({ item }: ListRenderItemInfo<UploadedDocument>) {
     return <UploadedDocumentItem {...item} />
   }
 
-  function keyExtractor({ id }: UploadedDocumentAPI) {
+  function keyExtractor({ id }: UploadedDocument) {
     return id
   }
 

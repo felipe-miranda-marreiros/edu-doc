@@ -1,4 +1,5 @@
 import { DocumentAPI } from '@/src/entities/Documents/Document'
+import { compressString } from '@/src/shared/utils/compressString'
 import { useRouter } from 'expo-router'
 import { Pressable, Text, View } from 'react-native'
 
@@ -6,7 +7,12 @@ export function DocumentItem(item: DocumentAPI) {
   const router = useRouter()
 
   function onPress() {
-    router.navigate('/private/doc-preview')
+    router.navigate({
+      pathname: '/private/doc-preview/[uri]',
+      params: {
+        uri: compressString.encodePathToUrlParam(item.url)
+      }
+    })
   }
 
   return (

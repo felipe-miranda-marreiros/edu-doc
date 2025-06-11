@@ -1,6 +1,7 @@
-import { PermissionName, usePermission } from '@/src/shared/permission'
 import { PropsWithChildren } from 'react'
 import { ActivityIndicator, Button, Platform, Text, View } from 'react-native'
+import { PermissionName } from './permission/permissionTypes'
+import { usePermission } from './permission/usePermission'
 
 interface PermissionManagerProps {
   permissionName: PermissionName
