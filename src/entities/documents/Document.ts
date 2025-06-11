@@ -7,4 +7,5 @@ export interface DocumentAPI {
   date: string
   size: string
   pages: number
+  description: string
 }
