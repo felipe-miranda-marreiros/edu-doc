@@ -1,3 +1,4 @@
+import { compressImage } from '@shared/utils/compressImage'
 import * as DocumentPicker from 'expo-document-picker'
 import { useState } from 'react'
 
@@ -28,6 +29,10 @@ export function useDocumentPicker() {
       if (!ALLOWED_TYPES.includes(file.mimeType || '')) {
         setError('O arquivo que você selecionou não é suportado')
         return null
+      }
+      if (file.mimeType?.includes('image')) {
+        const compressedImageUri = await compressImage(file.uri)
+        return compressedImageUri
       }
       return file.uri
     }

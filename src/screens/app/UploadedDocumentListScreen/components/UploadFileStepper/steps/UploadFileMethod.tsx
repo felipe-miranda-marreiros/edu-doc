@@ -58,6 +58,7 @@ export function UploadFileMethod() {
         <Button disabled={isPending} onPress={() => onPress('camera')} title="Câmera" />
         <Button
           disabled={isPending}
+          isLoading={isPending}
           onPress={() => onPress('files')}
           title="Escolher em seus arquivos"
         />

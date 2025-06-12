@@ -2,6 +2,7 @@ import { useUploadDocument, useUploadStore } from '@features/UploadDocument'
 import { CacheKeys } from '@shared/cache'
 import { Button } from '@shared/components'
 import { compressString } from '@shared/utils'
+import { compressImage } from '@shared/utils/compressImage'
 import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'expo-router'
 import { Image, Text, View } from 'react-native'
@@ -18,8 +19,13 @@ export default function CameraPreviewScreen({ uri }: CameraPreviewProps) {
   const router = useRouter()
 
   async function onUpload() {
+    const compressedImageUri = await compressImage(source)
     uploadDocument(
-      { category: category ?? '', file: uri, title: title ?? '' },
+      {
+        category: category ?? '',
+        file: compressString.encodePathToUrlParam(compressedImageUri),
+        title: title ?? ''
+      },
       {
         onSuccess: async () => {
           await queryClient.invalidateQueries({ queryKey: [CacheKeys.UPLOAD_DOCUMENT_LIST] })
