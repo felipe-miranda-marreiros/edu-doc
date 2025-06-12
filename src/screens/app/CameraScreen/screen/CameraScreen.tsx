@@ -18,7 +18,7 @@ export default function CameraScreen() {
   return (
     <PermissionManager
       permissionName="camera"
-      description="Permite o acesso a câmera pra continuar"
+      description="Permita o acesso a câmera para continuar"
     >
       <Camera onTakePicture={onTakePicture} />
     </PermissionManager>

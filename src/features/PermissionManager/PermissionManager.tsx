@@ -1,3 +1,4 @@
+import { Screen } from '@shared/components'
 import { PropsWithChildren } from 'react'
 import { ActivityIndicator, Button, Platform, Text, View } from 'react-native'
 import { PermissionName } from './permission/permissionTypes'
@@ -20,8 +21,8 @@ export function PermissionManager({
   }
 
   return (
-    <View>
-      <View>
+    <Screen title="Status de permissão">
+      <View className="flex-1 items-center justify-center">
         <Text>{description}</Text>
         {isLoading && <ActivityIndicator />}
         {status === 'unavailable' && (
@@ -36,6 +37,6 @@ export function PermissionManager({
           </View>
         )}
       </View>
-    </View>
+    </Screen>
   )
 }
