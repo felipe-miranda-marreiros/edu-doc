@@ -90,7 +90,6 @@ export async function loadAndSaveFiles() {
       description: 'Comunicado sobre reunião de pais e mestres.'
     }
   ]
-  console.log('Assigning mocks to local server', JSON.stringify(availableDocuments, null, 2))
   dataMock.availableDocuments = availableDocuments
   console.log('Finished saving mock files in local memory')
 }
