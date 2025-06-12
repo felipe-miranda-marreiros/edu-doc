@@ -51,6 +51,32 @@ password: test123456
 
 https://github.com/user-attachments/assets/49d879b2-b27e-450c-bf1e-0a9655e3114b
 
+> ## Features
+
+- Visualização de Documentos
+- Upload de Documentos
+- Compressão de imagens no upload
+- Visualização Fallback para formatos não suportados
+
+> ## Arquivos suportados
+
+`./src/features/DocumentPicker/useDocumentPicker.ts`
+
+```js
+const ALLOWED_TYPES = [
+  'application/pdf',
+  'image/png',
+  'image/jpeg',
+  'image/jpg',
+  'image/heif',
+  'image/jfif',
+  'image/avif',
+  'docx',
+  'pdf',
+  'text/html'
+]
+```
+
 > ## Metodologia e Arquitetura: Feature Slice Design
 
 Feature Slice Design (FSD) é uma metodologia de arquitetura para a construção de aplicações Front-End. Simplificando, é uma compilação de regras e convenções sobre a organização do código. O principal objetivo dessa metodologia é tornar o projeto mais compreensível e estruturado diante das constantes mudanças nos requisitos de negócios.
