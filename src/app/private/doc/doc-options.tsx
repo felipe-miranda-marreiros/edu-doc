@@ -1,4 +1,4 @@
-import DocumentListOptionScreen from '@/src/screens/app/Documents/DocumentListOptionScreen/screen/DocumentListOptionScreen'
+import DocumentListOptionScreen from '@screens/app/DocumentListOptionScreen/screen/DocumentListOptionScreen'
 
 export default function DocOption() {
   return <DocumentListOptionScreen />

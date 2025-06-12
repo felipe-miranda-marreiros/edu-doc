@@ -1,5 +1,5 @@
-import { Credentials } from '@/src/entities/Auth/Auth'
-import { storage } from '@/src/shared/storage/Storage'
+import { Credentials } from '@entities/Auth'
+import { storage } from '@shared/storage'
 
 const CREDENTIAL_KEY = '@Auth'
 

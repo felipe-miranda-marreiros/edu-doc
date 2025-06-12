@@ -1,4 +1,4 @@
-import { SignIn } from '@/src/entities/SignIn/SignIn'
+import { SignIn } from '@entities/SignIn'
 import { z } from 'zod'
 
 export const loginSchema = z.object({

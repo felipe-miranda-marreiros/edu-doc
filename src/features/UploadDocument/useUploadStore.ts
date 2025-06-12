@@ -1,5 +1,5 @@
-import { UploadedCatetoryAPI } from '@/src/entities/UploadedDocuments/UploadDocument'
-import { UploadFileMethods } from '@/src/screens/app/UploadedDocuments/UploadedDocumentListScreen/components/UploadFileStepper/steps/UploadFileMethod'
+import { UploadedCatetoryAPI } from '@entities/UploadedDocuments'
+import { UploadFileMethods } from '@screens/app/UploadedDocumentListScreen/components/UploadFileStepper/steps/UploadFileMethod'
 import { create } from 'zustand'
 
 interface State {

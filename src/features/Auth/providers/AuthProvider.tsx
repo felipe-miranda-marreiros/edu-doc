@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 
-import { Credentials } from '@/src/entities/Auth/Auth'
+import { Credentials } from '@entities/Auth'
 import { credentialStorage } from '../storage/CredentialStorage'
 
 export interface AuthContextProps {

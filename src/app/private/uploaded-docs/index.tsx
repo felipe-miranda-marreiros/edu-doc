@@ -1,4 +1,4 @@
-import UploadedDocumentListScreen from '@/src/screens/app/UploadedDocuments/UploadedDocumentListScreen/screen/UploadedDocumentListScreen'
+import UploadedDocumentListScreen from '@screens/app/UploadedDocumentListScreen/screen/UploadedDocumentListScreen'
 
 export default function UploadedDocuments() {
   return <UploadedDocumentListScreen />

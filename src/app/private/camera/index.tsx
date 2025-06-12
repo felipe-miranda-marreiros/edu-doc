@@ -1,4 +1,4 @@
-import CameraScreen from '@/src/screens/app/Camera/screen/CameraScreen'
+import CameraScreen from '@screens/app/CameraScreen/screen/CameraScreen'
 
 export default function Camera() {
   return <CameraScreen />

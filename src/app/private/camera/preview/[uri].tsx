@@ -1,4 +1,4 @@
-import CameraPreviewScreen from '@/src/screens/app/Camera/screen/CameraPreviewScreen'
+import CameraPreviewScreen from '@screens/app/CameraScreen/screen/CameraPreviewScreen'
 import { useLocalSearchParams } from 'expo-router'
 
 export default function CameraPreview() {

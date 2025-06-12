@@ -1,6 +1,6 @@
-import { Credentials } from '@/src/entities/Auth/Auth'
-import { SignIn } from '@/src/entities/SignIn/SignIn'
-import { client } from '@/src/shared/api/Client'
+import { Credentials } from '@entities/Auth'
+import { SignIn } from '@entities/SignIn'
+import { client } from '@shared/api'
 import { useMutation } from '@tanstack/react-query'
 
 async function signIn(params: SignIn): Promise<Credentials> {

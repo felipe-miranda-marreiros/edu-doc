@@ -1,4 +1,4 @@
-import { client } from '@/src/shared/api/Client'
+import { client } from '@shared/api'
 import { useMutation } from '@tanstack/react-query'
 
 interface UploadDocumentParams {
