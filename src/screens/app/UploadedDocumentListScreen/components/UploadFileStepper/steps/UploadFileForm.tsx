@@ -1,8 +1,8 @@
 import { useUploadActions } from '@features/UploadDocument'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { BottomSheetTextInput } from '@shared/components'
+import { BottomSheetTextInput, Button } from '@shared/components'
 import { useForm } from 'react-hook-form'
-import { Button, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { z } from 'zod'
 import { BaseStepProps } from '../UploadFileStepper'
 

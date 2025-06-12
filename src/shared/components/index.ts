@@ -1,5 +1,6 @@
 export * from './BottomSheet/BottomSheet'
 export * from './BottomSheet/BottomSheetStore'
+export * from './Button/Button'
 export * from './Screen/Screen'
 export * from './TextInput/BottomSheetTextInput'
 export * from './TextInput/TextInput'

@@ -1,7 +1,7 @@
 import { LogoutButton } from '@features/Logout'
-import { Screen } from '@shared/components'
+import { Button, Screen } from '@shared/components'
 import { useRouter } from 'expo-router'
-import { Button, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 
 export default function DocumentListOptionScreen() {
   const router = useRouter()

@@ -1,7 +1,8 @@
 import { UploadedCatetoryAPI } from '@entities/UploadedDocuments'
 import { useUploadActions } from '@features/UploadDocument'
+import { Button } from '@shared/components'
 import { dataMock } from '@shared/mocks/DataMock'
-import { Button, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { BaseStepProps } from '../UploadFileStepper'
 
 interface Option {

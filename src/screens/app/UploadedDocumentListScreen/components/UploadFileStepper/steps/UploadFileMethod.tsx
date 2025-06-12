@@ -1,10 +1,10 @@
 import { useDocumentPicker } from '@features/DocumentPicker'
 import { useUploadActions, useUploadDocument, useUploadStore } from '@features/UploadDocument'
-import { useBottomSheetService } from '@shared/components'
+import { Button, useBottomSheetService } from '@shared/components'
 import { compressString } from '@shared/utils'
 import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'expo-router'
-import { Button, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 
 export type UploadFileMethods = 'camera' | 'files'
 

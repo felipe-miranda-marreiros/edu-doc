@@ -16,7 +16,7 @@ export function BottomSheetTextInput<TForm extends FieldValues>({
       render={({ field, fieldState }) => (
         <View>
           <BTNSheetTextInput
-            className="border rounded-lg"
+            className="border rounded-lg pl-4 h-16"
             value={field.value}
             onChangeText={field.onChange}
             {...rest}

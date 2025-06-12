@@ -1,4 +1,4 @@
-import { Button } from 'react-native'
+import { Button } from '@shared/components'
 import { useLogout } from './useLogout'
 
 export function LogoutButton() {

@@ -1,5 +1,4 @@
-import { useBottomSheetService } from '@shared/components'
-import { Button } from 'react-native'
+import { Button, useBottomSheetService } from '@shared/components'
 import { UploadFileStepper } from './UploadFileStepper/UploadFileStepper'
 
 export function UploadFileButton() {
@@ -8,7 +7,7 @@ export function UploadFileButton() {
   function onPress() {
     onOpen({
       Component: <UploadFileStepper />,
-      snapPoints: ['35%']
+      snapPoints: ['50%']
     })
   }
 

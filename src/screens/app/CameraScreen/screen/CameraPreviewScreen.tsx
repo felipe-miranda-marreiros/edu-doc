@@ -1,8 +1,9 @@
 import { useUploadDocument, useUploadStore } from '@features/UploadDocument'
+import { Button } from '@shared/components'
 import { compressString } from '@shared/utils'
 import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'expo-router'
-import { Button, Image, View } from 'react-native'
+import { Image, View } from 'react-native'
 
 interface CameraPreviewProps {
   uri: string
@@ -35,8 +36,13 @@ export default function CameraPreviewScreen({ uri }: CameraPreviewProps) {
   return (
     <View className="flex-1">
       <Image alt="Preview de foto" source={{ uri: source }} className="flex-1" />
-      <View className="gap-4">
-        <Button disabled={isPending} onPress={onUpload} title="Fazer upload" />
+      <View className="gap-4 p-4">
+        <Button
+          isLoading={isPending}
+          disabled={isPending}
+          onPress={onUpload}
+          title="Fazer upload"
+        />
         <Button disabled={isPending} onPress={onRedone} title="Refazer" />
       </View>
     </View>

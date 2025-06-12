@@ -15,7 +15,7 @@ export function FormInput<TForm extends FieldValues>({
       render={({ field, fieldState }) => (
         <View>
           <TextInput
-            className="border rounded-lg"
+            className="border border-gray-400 rounded-lg pl-4 h-16"
             value={field.value}
             onChangeText={field.onChange}
             {...rest}

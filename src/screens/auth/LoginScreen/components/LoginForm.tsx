@@ -1,10 +1,10 @@
 import { SignIn } from '@entities/SignIn'
 import { useAuth } from '@features/Auth'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FormInput } from '@shared/components'
+import { Button, FormInput } from '@shared/components'
 import { useRouter } from 'expo-router'
 import { useForm } from 'react-hook-form'
-import { Button, Text, View } from 'react-native'
+import { KeyboardAvoidingView, Platform, Text } from 'react-native'
 import { useSignInApi } from '../api/useSignInApi'
 import { loginSchema } from './LoginSchema'
 
@@ -36,7 +36,10 @@ export function LoginForm() {
   }
 
   return (
-    <View className="self-stretch px-4 gap-6">
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      className="self-stretch px-4 gap-6"
+    >
       <Text>Entre para continuar</Text>
       <FormInput placeholder="Digite sua matricula" control={form.control} name="enrollment" />
       <FormInput
@@ -45,7 +48,12 @@ export function LoginForm() {
         control={form.control}
         name="password"
       />
-      <Button disabled={isPending} onPress={form.handleSubmit(onSubmit)} title="Fazer login" />
-    </View>
+      <Button
+        isLoading={isPending}
+        disabled={isPending}
+        onPress={form.handleSubmit(onSubmit)}
+        title="Fazer login"
+      />
+    </KeyboardAvoidingView>
   )
 }
