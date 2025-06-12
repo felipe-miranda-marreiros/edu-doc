@@ -2,11 +2,7 @@ import { SignIn } from '@/src/entities/SignIn/SignIn'
 import { z } from 'zod'
 
 export const loginSchema = z.object({
-  enrollment: z
-    .string()
-    .trim()
-    .nonempty({ message: 'Campo obrigatório' })
-    .uuid({ message: 'Matrícula inválida' }),
+  enrollment: z.string().trim().nonempty({ message: 'Campo obrigatório' }),
   password: z
     .string()
     .trim()

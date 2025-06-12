@@ -1,7 +1,7 @@
 import { useUploadActions } from '@/src/features/UploadDocument/useUploadStore'
-import { BottomSheetTextInput } from '@gorhom/bottom-sheet'
+import { BottomSheetTextInput } from '@/src/shared/components/TextInput/BottomSheetTextInput'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Controller, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Button, Text, View } from 'react-native'
 import { z } from 'zod'
 import { BaseStepProps } from '../UploadFileStepper'
@@ -28,19 +28,7 @@ export function UploadFileForm({ onNextStep: onNextTab }: BaseStepProps) {
     <View className="flex-1">
       <View className="flex-2 mt-2">
         <Text className="text-xl mb-4">Como deseja chamar este arquivo?</Text>
-        <Controller
-          control={form.control}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <BottomSheetTextInput
-              placeholder="Insira um titulo"
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              className="border rounded-lg w-full"
-            />
-          )}
-          name="title"
-        />
+        <BottomSheetTextInput placeholder="Digite um titulo" control={form.control} name="title" />
       </View>
       <View className="mt-auto mb-5">
         <Button title="Avançar" onPress={form.handleSubmit(onSubmit)} />
