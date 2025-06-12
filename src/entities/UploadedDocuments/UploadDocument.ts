@@ -1,4 +1,4 @@
-import { File } from '../Documents/File'
+import { File } from '@entities/Documents'
 
 export interface UploadedDocumentAPI {
   id: string
