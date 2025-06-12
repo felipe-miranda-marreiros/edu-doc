@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./src",
+    "forceConsistentCasingInFileNames": true,
     "paths": {
       "@app/*": ["app"],
       "@entities/*": ["entities/*"],
