@@ -9,7 +9,7 @@ import { Text, View } from 'react-native'
 export type UploadFileMethods = 'camera' | 'files'
 
 export function UploadFileMethod() {
-  const { isPending, uploadDocument } = useUploadDocument()
+  const { isPending, uploadDocument, isError } = useUploadDocument()
   const { category, title } = useUploadStore()
   const { onReset } = useBottomSheetService()
   const { setMethod } = useUploadActions()
@@ -53,6 +53,7 @@ export function UploadFileMethod() {
     <View className="py-7">
       <Text className="text-xl mb-4">Escolha como deseja enviar:</Text>
       <View className="gap-4">
+        {isError && <Text className="text-red-500">Ocorreu um erro ao enviar arquivo</Text>}
         <Button disabled={isPending} onPress={() => onPress('camera')} title="Câmera" />
         <Button
           disabled={isPending}

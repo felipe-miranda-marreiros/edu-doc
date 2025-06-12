@@ -1,5 +1,5 @@
 import { UploadedDocument } from '@entities/UploadedDocuments'
-import { Screen } from '@shared/components'
+import { Button, Screen } from '@shared/components'
 import {
   ActivityIndicator,
   FlatList,
@@ -13,13 +13,24 @@ import { UploadedDocumentItem } from '../components/UploadedDocumentItem/Uploade
 import { UploadFileButton } from '../components/UploadFileButton'
 
 export default function UploadedDocumentListScreen() {
-  const { uploadedList, isLoading, refetch, isRefetching } = useUploadedDocumentList()
+  const { uploadedList, isLoading, isError, refetch, isRefetching } = useUploadedDocumentList()
 
   if (isLoading) {
     return (
       <View className="flex-1 items-center justify-center">
         <ActivityIndicator />
       </View>
+    )
+  }
+
+  if (isError) {
+    return (
+      <Screen title="Erro ao buscar documentos">
+        <View className="flex-1 items-center justify-center gap-4">
+          <Text className="text-2xl text-center">Não conseguimos buscar seus documentos</Text>
+          <Button title="Tentar novamente" onPress={() => refetch()} />
+        </View>
+      </Screen>
     )
   }
 
