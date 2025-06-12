@@ -11,7 +11,8 @@ const ALLOWED_TYPES = [
   'image/jfif',
   'image/avif',
   'docx',
-  'pdf'
+  'pdf',
+  'text/html'
 ]
 
 export function useDocumentPicker() {
