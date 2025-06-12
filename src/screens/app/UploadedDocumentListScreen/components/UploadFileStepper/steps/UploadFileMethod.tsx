@@ -1,5 +1,6 @@
 import { useDocumentPicker } from '@features/DocumentPicker'
 import { useUploadActions, useUploadDocument, useUploadStore } from '@features/UploadDocument'
+import { CacheKeys } from '@shared/cache'
 import { Button, useBottomSheetService } from '@shared/components'
 import { compressString } from '@shared/utils'
 import { useQueryClient } from '@tanstack/react-query'
@@ -40,7 +41,7 @@ export function UploadFileMethod() {
         },
         {
           onSuccess: async () => {
-            await queryClient.invalidateQueries({ queryKey: ['UPLOAD_DOCUMENT_LIST'] })
+            await queryClient.invalidateQueries({ queryKey: [CacheKeys.UPLOAD_DOCUMENT_LIST] })
             onReset()
           }
         }

@@ -1,5 +1,6 @@
 import { DocumentAPI } from '@entities/Documents'
 import { client } from '@shared/api'
+import { CacheKeys } from '@shared/cache'
 import { useQuery } from '@tanstack/react-query'
 
 async function documentList(): Promise<DocumentAPI[]> {
@@ -9,7 +10,7 @@ async function documentList(): Promise<DocumentAPI[]> {
 
 export function useDocumentList() {
   const query = useQuery({
-    queryKey: ['DOCUMENT_LIST'],
+    queryKey: [CacheKeys.DOCUMENT_LIST],
     queryFn: documentList
   })
 

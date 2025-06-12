@@ -1,5 +1,6 @@
 import { UploadedDocument } from '@entities/UploadedDocuments'
 import { client } from '@shared/api'
+import { CacheKeys } from '@shared/cache'
 import { useQuery } from '@tanstack/react-query'
 
 async function uploadedDocumentList(): Promise<UploadedDocument[]> {
@@ -9,7 +10,7 @@ async function uploadedDocumentList(): Promise<UploadedDocument[]> {
 
 export function useUploadedDocumentList() {
   const query = useQuery({
-    queryKey: ['UPLOAD_DOCUMENT_LIST'],
+    queryKey: [CacheKeys.UPLOAD_DOCUMENT_LIST],
     queryFn: uploadedDocumentList
   })
 

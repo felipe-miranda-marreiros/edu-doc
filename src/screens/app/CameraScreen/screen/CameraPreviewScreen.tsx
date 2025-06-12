@@ -1,4 +1,5 @@
 import { useUploadDocument, useUploadStore } from '@features/UploadDocument'
+import { CacheKeys } from '@shared/cache'
 import { Button } from '@shared/components'
 import { compressString } from '@shared/utils'
 import { useQueryClient } from '@tanstack/react-query'
@@ -21,7 +22,7 @@ export default function CameraPreviewScreen({ uri }: CameraPreviewProps) {
       { category: category ?? '', file: uri, title: title ?? '' },
       {
         onSuccess: async () => {
-          await queryClient.invalidateQueries({ queryKey: ['UPLOAD_DOCUMENT_LIST'] })
+          await queryClient.invalidateQueries({ queryKey: [CacheKeys.UPLOAD_DOCUMENT_LIST] })
           router.dismiss(1)
           router.replace('/private/uploaded-docs')
         }
