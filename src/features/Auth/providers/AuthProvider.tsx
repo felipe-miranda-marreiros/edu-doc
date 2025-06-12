@@ -3,22 +3,24 @@ import { createContext, useEffect, useState } from 'react'
 import { Credentials } from '@/src/entities/Auth/Auth'
 import { credentialStorage } from '../storage/CredentialStorage'
 
-interface AuthContextProps {
-  authCredentials: Credentials | null
+export interface AuthContextProps {
+  credentials: Credentials | null
   isLoading: boolean
   saveCredentials(credentials: Credentials): Promise<void>
   removeCredentials(): Promise<void>
+  isLoggedIn: boolean
 }
 
 export const AuthContext = createContext<AuthContextProps>({
-  authCredentials: null,
+  credentials: null,
   isLoading: true,
   saveCredentials: async () => {},
-  removeCredentials: async () => {}
+  removeCredentials: async () => {},
+  isLoggedIn: false
 })
 
 export function AuthProvider({ children }: React.PropsWithChildren) {
-  const [authCredentials, setAuthCredentials] = useState<Credentials | null>(null)
+  const [credentials, setCredentials] = useState<Credentials | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export function AuthProvider({ children }: React.PropsWithChildren) {
     try {
       const credentials = await credentialStorage.get()
       if (credentials) {
-        setAuthCredentials(credentials)
+        setCredentials(credentials)
       }
     } catch (error) {
       console.log(error)
@@ -40,18 +42,19 @@ export function AuthProvider({ children }: React.PropsWithChildren) {
 
   async function saveCredentials(credentials: Credentials): Promise<void> {
     credentialStorage.set(credentials)
-    setAuthCredentials(credentials)
+    setCredentials(credentials)
   }
 
   async function removeCredentials(): Promise<void> {
     credentialStorage.remove()
-    setAuthCredentials(null)
+    setCredentials(null)
   }
 
   return (
     <AuthContext.Provider
       value={{
-        authCredentials,
+        isLoggedIn: credentials !== null,
+        credentials,
         isLoading,
         saveCredentials,
         removeCredentials

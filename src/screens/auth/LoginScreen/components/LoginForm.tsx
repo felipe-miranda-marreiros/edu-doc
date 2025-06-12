@@ -1,4 +1,5 @@
 import { SignIn } from '@/src/entities/SignIn/SignIn'
+import { useAuth } from '@/src/features/Auth/hooks/useAuth'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'expo-router'
 import { Controller, useForm } from 'react-hook-form'
@@ -8,6 +9,7 @@ import { loginSchema } from './LoginSchema'
 
 export function LoginForm() {
   const { signIn, isPending } = useSignInApi()
+  const { saveCredentials } = useAuth()
   const router = useRouter()
   const form = useForm({
     defaultValues: {
@@ -22,7 +24,7 @@ export function LoginForm() {
       { enrollment: data.enrollment, password: data.password },
       {
         onSuccess: (res) => {
-          console.log(res)
+          saveCredentials(res)
           router.navigate('/private/doc/doc-options')
         },
         onError: (err) => {
